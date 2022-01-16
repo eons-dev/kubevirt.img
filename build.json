@@ -1,0 +1,19 @@
+{
+    "ebbs_next":
+    [
+        {
+            "build": "docker",
+            "run_when": [
+            	"release"
+            ],
+            "config":
+            {
+                "base_image": "scratch",
+                "image_name": "eons/img_ubuntu20.04",
+                "also" : [
+                    "ADD --chown=107:107 https://cloud-images.ubuntu.com/focal/20220113/focal-server-cloudimg-amd64.img /disk/"
+                ]
+            }
+        }
+    ]
+}
