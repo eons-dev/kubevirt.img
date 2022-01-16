@@ -11,7 +11,7 @@
                 "base_image": "scratch",
                 "image_name": "eons/img_ubuntu20.04",
                 "also" : [
-                    "ADD --chown=107:107 http://releases.ubuntu.com/focal/ubuntu-20.04.3-live-server-amd64.iso /disk/"
+                    "ADD --chown=107:107 https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img /disk/"
                 ],
                 "tags": [
                 	"latest"
