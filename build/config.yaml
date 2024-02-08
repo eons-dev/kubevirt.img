@@ -3,8 +3,6 @@ type: img
 env: {}
 next:
 - build: docker
-  run_when:
-    - release
   config:
     base_image: scratch
     image_name: eons/jammy.ubuntu.kubevirt.img
@@ -14,9 +12,13 @@ next:
         /disk/
     tags:
       - latest
+- build: docker_publish
+	run_when_any:
+	- release
+	build_in: publish
+	config:
+		image_name: eons/jammy.ubuntu.kubevirt.img
 - build: docker
-  run_when:
-    - release
   config:
     base_image: scratch
     image_name: eons/alpine.kubevirt.img
@@ -26,3 +28,9 @@ next:
         /disk/
     tags:
       - latest
+- build: docker_publish
+	run_when_any:
+	- release
+	build_in: publish
+	config:
+		image_name: eons/alpine.kubevirt.img
