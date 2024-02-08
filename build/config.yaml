@@ -3,7 +3,10 @@ type: img
 env: {}
 next:
 - build: docker
+  build_in: jammy.ubuntu
   config:
+    name: 
+    type: img
     base_image: scratch
     image_name: eons/jammy.ubuntu.kubevirt.img
     also:
@@ -19,6 +22,7 @@ next:
 	config:
 		image_name: eons/jammy.ubuntu.kubevirt.img
 - build: docker
+  build_in: alpine
   config:
     base_image: scratch
     image_name: eons/alpine.kubevirt.img
