@@ -7,6 +7,7 @@ next:
   config:
     base_image: scratch
     image_name: eons/jammy.ubuntu.kubevirt.img
+    env: {}
     also:
       - ADD --chown=107:107
         https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
