@@ -1,4 +1,4 @@
-name: jammy.ubuntu.kubevirt
+name: kubevirt
 type: img
 env: {}
 next:
@@ -11,6 +11,18 @@ next:
     also:
       - ADD --chown=107:107
         https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
+        /disk/
+    tags:
+      - latest
+- build: docker
+  run_when:
+    - release
+  config:
+    base_image: scratch
+    image_name: eons/alpine.kubevirt.img
+    also:
+      - ADD --chown=107:107
+        https://dl-cdn.alpinelinux.org/alpine/v3.19/releases/cloud/nocloud_alpine-3.19.1-x86_64-bios-cloudinit-r0.qcow2
         /disk/
     tags:
       - latest
